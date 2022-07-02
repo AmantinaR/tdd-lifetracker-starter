@@ -1,8 +1,7 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
 
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **Amantina**
+Submitted by: **Amantina Rossi**
 
 Deployed Application: [Lifetracker Deployed Site but not fully functional on deployed version](https://lifetracker365.surge.sh/)
 
@@ -39,10 +38,9 @@ Implement any of the following features to improve the application:
 - [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 ### Walkthrough Video
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/75582135/176980247-17260797-ab53-447e-81f3-ac8dd79455e4.gif)
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
