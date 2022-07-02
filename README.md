@@ -4,7 +4,7 @@
 
 Submitted by: **Amantina**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+Deployed Application: [Lifetracker Deployed Site but not fully functional on deployed version](https://lifetracker365.surge.sh/)
 
 ## Application Features
 
@@ -18,10 +18,10 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] **Login Page:** A form that allows users to login with email and password.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
-- [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] Deployed website with Heroku & Surge. 
+- [x] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
 - [ ] The detailed activity page should display a feed of all previous tracked activities.
@@ -48,15 +48,15 @@ Implement any of the following features to improve the application:
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+The topics in lab somewhat helped prepare me for the assignment. The SQL practice was helpful, as was working on backend for the vaccine portal. However, aspects of the project including authentication, tokens, apiClient, useContext, and connecting the front end to back end were much harder for me to complete because I had to learn it all from the video playlists which was very time consuming.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+I would try to spend more time understanding what I'm doing so I can duplicate the work in the future without having to rely on other code/resource videos. I would also have liked to spend more time on styling.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+My project demo went realyl well and I appreciate the insights given to me by the Course Hero mentors. I especially enjoyed hearing what they had to say about the other demos because it gave me tips for how to improve my own project. 
 
 ### Open-source libraries used
 
@@ -66,4 +66,4 @@ Implement any of the following features to improve the application:
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+Shoutout to my great pod with Hawo and Abdullah, as well as Rebecca, Roy, and Hope for helping me debug when I had problems.
