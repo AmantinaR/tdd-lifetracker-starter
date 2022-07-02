@@ -18,13 +18,13 @@ export default function NavLinks({loggedIn}) {
       <div className="nav-links">
         <ul className="nav-list">
           <li>
-          <Link to={"/"}>Home</Link>
+          <Link className="nav-link" to={"/"}>Home</Link>
           </li>
           <li>
-            <a href="/nutrition">Nutrition</a>
+            <a className="nav-link" href="/nutrition">Nutrition</a>
           </li>
           <li>
-          <Link to={"/activity"}>Activity</Link>
+          <Link className="nav-link" to={"/activity"}>Activity</Link>
           </li>
           {loggedIn ? <li><button className="logout" onClick={handleLogout}>Logout</button></li> : <><li className="register"><Link to={"/login"}>Login</Link></li><li className="register"><Link to={"/register"}>Sign Up</Link></li></>}
           

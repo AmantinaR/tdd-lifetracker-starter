@@ -1,8 +1,8 @@
 .nav-links {
-    color: var(--light-text);
+    
     width: 600px
 }
-a {
+.nav-link {
     color: var(--light-text);
     text-decoration: none;
     cursor: pointer;
@@ -19,6 +19,10 @@ a {
     padding: 10px;
     border-radius: 6px;
 }
+.register > a{
+    color: var(--light-text);
+    text-decoration: none;
+}
 .logout {
     background-color: var(--accent-green);
     padding: 10px;
@@ -27,4 +31,16 @@ a {
     border: 0px solid black;
     font: inherit;
     cursor: pointer;
+}
+.register > a:hover{
+    background-color: var(--light-text);
+    color: var(--dark-text);
+}
+.register:hover{
+    background-color: var(--light-text);
+    color: var(--dark-text);
+}
+.logout:hover{
+    background-color: var(--light-text);
+    color: var(--accent-green);
 }

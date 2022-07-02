@@ -1,16 +1,19 @@
-.InputField {
+.form-input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     margin: 8px 0;
     flex: 1;
+    font: inherit;
+    
   }
-  .InputField label {
+  .form-input label {
     margin-bottom: 5px;
     color: var(--light-text);
   }
-  .InputField input {
+  .form-input input {
+    font: inherit;
     height: 60px;
     padding: 0 15px;
     font-size: 16px;
@@ -19,15 +22,38 @@
     background: transparent;
     color: var(--light-text);
   }
-  .InputField input::placeholder {
+  .form-input input::placeholder {
     color: var(--light-text);
   }
-  .InputField input::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
+  
   .nutrition-form{
       padding: 60px;
       padding-left: 100px;
       padding-right: 100px;
+      width: 50%;
+      font: inherit;
+  }
+  #category{
+      width: 100%;
+      padding: 20px 10px;
+      border: solid 1px var(--light-text);
+      background-color: transparent;
+      color: var(--light-text);
+      border-radius: 4px;
+      font: inherit;
+  }
+  .submit-nutrition{
+    background-color: var(--accent-green);
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--light-text);
+    border: 0px solid black;
+    font: inherit;
+    cursor: pointer;
+    width: 80px;
+  }
+  .submit-nutrition:hover{
+    background-color: var(--light-text);
+    color: var(--background);
   }
   

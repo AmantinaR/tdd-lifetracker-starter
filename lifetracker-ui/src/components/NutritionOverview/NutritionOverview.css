@@ -16,3 +16,8 @@
     padding: 10px;
     border-radius: 4px;
 }
+.nutrition-btn:hover{
+    border: 0px solid var(--light-text);
+    background-color: var(--light-text);
+    color: var(--background);
+}

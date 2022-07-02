@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import NutritionOverview from "components/NutritionOverview/NutritionOverview";
+import NutritionForm from "components/NutritionForm/NutritionForm";
 import "./NutritionNew.css";
 import NotFound from "components/NotFound/NotFound";
 
@@ -11,7 +12,7 @@ export default function NutritionNew({}) {
     //state to check if user is logged in
     return (
         <div className="nutrition-new">
-            
+            <NutritionForm></NutritionForm>
         </div>
     );
 }

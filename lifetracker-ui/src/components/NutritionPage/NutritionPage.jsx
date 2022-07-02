@@ -6,6 +6,7 @@ import {Routes, Route} from 'react-router-dom';
 import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
 import NutritionOverview from "components/NutritionOverview/NutritionOverview";
 import NutritionForm from "components/NutritionForm/NutritionForm";
+import NutritionNew from "components/NutritionNew/NutritionNew";
 import "./NutritionPage.css";
 import NotFound from "components/NotFound/NotFound";
 
@@ -26,7 +27,7 @@ function NutritionPage({}) {
             </div>
             <Routes>
                 <Route path="/" element={<NutritionOverview/>}/>
-                <Route path="/create" element={<NutritionForm/>}/>
+                <Route path="/create" element={<NutritionNew/>}/>
                 <Route path="/id/:nutritionId" element={<h4>detail</h4>}/>
                 <Route path="/*" element={<NotFound/>}/>
             </Routes>

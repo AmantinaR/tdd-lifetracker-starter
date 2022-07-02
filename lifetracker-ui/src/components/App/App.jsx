@@ -17,6 +17,7 @@ import RegistrationPage from "components/RegistrationPage/RegistrationPage";
 import NotFound from "components/NotFound/NotFound";
 import AccessForbidden from "components/AccessForbidden/AccessForbidden";
 import NutritionPage from "components/NutritionPage/NutritionPage";
+import ActivityPage from "components/ActivityPage/ActivityPage";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 
@@ -61,7 +62,7 @@ function App() {
             <Route path="/" element={<LandingPage/>}/>
             <Route path="/login" element={user.email ? <Navigate to="/activity"/> : <LoginPage setUser={setUser}/>}/>
             <Route path="/register" element={user.email ? <Navigate to="/activity"/> : <RegistrationPage/>}/>
-            <Route path="/activity" element={!user.email ? <AccessForbidden/> : <div>activity page</div>}/>
+            <Route path="/activity" element={!user.email ? <AccessForbidden/> : <ActivityPage/>}/>
             <Route path="/nutrition/*" element={!user.email ? <AccessForbidden/> : <NutritionPage/>}/>
             
             <Route path="*" element={<NotFound/>}/>
