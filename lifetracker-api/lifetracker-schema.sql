@@ -20,3 +20,12 @@ CREATE TABLE nutrition (
     user_id     INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE sleep (
+    id          SERIAL PRIMARY KEY,
+    start_time  TIMESTAMP NOT NULL,
+    end_time    TIMESTAMP NOT NULL,
+    created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+    user_id     INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
