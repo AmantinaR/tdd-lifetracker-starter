@@ -10,3 +10,10 @@
     height: 200vh;
     margin-bottom: 20px;
 }
+.bottle{
+    position: fixed;
+}
+
+.nutrition-content{
+    position: relative;
+}

@@ -1,5 +1,5 @@
 .per-category{
-    background-image: radial-gradient(circle, var(--pink), rgb(232, 190, 197));
+    background-color: rgba(244, 247, 244, 0.874);
     color: var(--dark-text);
     padding: 20px;
     padding-top: 40px;
@@ -9,7 +9,7 @@
     border-radius: 6px;
 }
 .per-day{
-    background-image: radial-gradient(circle, var(--light-text), rgb(187, 223, 153));
+    background-color: rgba(244, 247, 244, 0.933);
     color: var(--dark-text);
     padding: 20px;
     width: 300px;

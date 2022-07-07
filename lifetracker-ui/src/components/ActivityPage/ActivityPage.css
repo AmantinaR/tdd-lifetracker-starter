@@ -2,7 +2,11 @@
     padding-left: 260px;
     padding-right: 260px;
     padding-top: 80px;
+    position: relative;
 }
 .activity-page > h1 {
     font-size: 50px;
+}
+.activity-img{
+    position: fixed;
 }

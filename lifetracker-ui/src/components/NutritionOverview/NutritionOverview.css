@@ -10,15 +10,21 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white
 }
 .nutrition-btn{
-    border: 2px solid var(--light-text);
+    
     padding: 10px;
     border-radius: 4px;
-    color: var(--light-text)
-}
-.nutrition-btn:hover{
+    text-decoration: none;
     border: 0px solid var(--light-text);
     background-color: var(--light-text);
     color: var(--background);
+}
+.nutrition-btn:hover{
+    color: var(--light-text);
+    border: 2px solid var(--light-text);
+    background-color: transparent;
 }

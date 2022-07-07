@@ -3,7 +3,7 @@ import {Redirect} from 'react'
 import axios from "axios";
 import { useState, useEffect,  } from 'react';
 import apiClient from "../../services/apiClient";
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate, Link} from 'react-router-dom';
 import NutritionOverview from "components/NutritionOverview/NutritionOverview";
 import "./NutritionForm.css";
 import NotFound from "components/NotFound/NotFound";
@@ -54,6 +54,7 @@ export default function NutritionForm({}) {
 
     return (
         <div className="nutrition-form">
+            <Link className="btn" to={'/nutrition'} style={{textDecoration: "none"}}>Back</Link>
             <h2>Record Nutrition</h2>
             <div className="form">
                 <div className="form-input">
