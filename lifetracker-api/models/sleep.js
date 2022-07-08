@@ -9,10 +9,11 @@ class Sleep {
     end_time    TIMESTAMP NOT NULL,
     created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
     user_id     INTEGER NOT NULL, */
+        console.log("in list sleep for user model")
         const results = await db.query(
             `
                 SELECT s.id,
-                       s.start_time AS "startTime,
+                       s.start_time AS "startTime",
                        s.end_time AS "endTime",
                        s.user_id AS "userId",
                        s.created_at AS "createdAt" 
@@ -21,6 +22,7 @@ class Sleep {
                 WHERE s.user_id = (SELECT users.id FROM users WHERE email = $1);
             `, [user.email]
         )
+        console.log("results", results);
         return results.rows
 
     }
@@ -28,8 +30,11 @@ class Sleep {
     static async createSleep({sleep, user}) {
         //create single post
         const requiredFields = ['startTime', 'endTime'];
+        console.log("sleep obj", sleep);
         requiredFields.forEach(field => {
             if(!sleep.hasOwnProperty(field)) {
+                throw new BadRequestError(`Required field- ${field} - missing from request body.`)
+            } else if(sleep[{field}] == "") {
                 throw new BadRequestError(`Required field- ${field} - missing from request body.`)
             }
         })

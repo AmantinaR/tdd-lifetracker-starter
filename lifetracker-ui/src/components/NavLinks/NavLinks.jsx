@@ -24,6 +24,9 @@ export default function NavLinks({loggedIn}) {
             <a className="nav-link" href="/nutrition">Nutrition</a>
           </li>
           <li>
+            <Link className="nav-link" to={"/sleep"}>Sleep</Link>
+          </li>
+          <li>
           <Link className="nav-link" to={"/activity"}>Activity</Link>
           </li>
           {loggedIn ? <li><button className="logout" onClick={handleLogout}>Logout</button></li> : <><li className="register"><Link to={"/login"}>Login</Link></li><li className="register"><Link to={"/register"}>Sign Up</Link></li></>}

@@ -13,6 +13,7 @@ import "./App.css";
 import Navbar from "components/Navbar/Navbar";
 import LandingPage from "components/LandingPage/LandingPage";
 import LoginPage from "components/LoginPage/LoginPage";
+import SleepPage from "components/SleepPage/SleepPage";
 import RegistrationPage from "components/RegistrationPage/RegistrationPage";
 import NotFound from "components/NotFound/NotFound";
 import AccessForbidden from "components/AccessForbidden/AccessForbidden";
@@ -64,7 +65,7 @@ function App() {
             <Route path="/register" element={user.email ? <Navigate to="/activity"/> : <RegistrationPage/>}/>
             <Route path="/activity" element={!user.email ? <AccessForbidden/> : <ActivityPage/>}/>
             <Route path="/nutrition/*" element={!user.email ? <AccessForbidden/> : <NutritionPage/>}/>
-            
+            <Route path="/sleep/*" element={!user.email ? <AccessForbidden/> : <SleepPage/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>

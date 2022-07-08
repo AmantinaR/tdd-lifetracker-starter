@@ -1,0 +1,30 @@
+.sleep-overview{
+    
+    height: 100vh;
+    padding: 60px;
+}
+.overview-header{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white
+}
+.sleep-btn{
+    
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 0px solid var(--light-text);
+    background-color: var(--light-text);
+    color: var(--background);
+}
+.sleep-btn:hover{
+    color: var(--light-text);
+    border: 2px solid var(--light-text);
+    background-color: transparent;
+}

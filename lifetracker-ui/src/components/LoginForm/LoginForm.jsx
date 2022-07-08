@@ -48,24 +48,7 @@ export default function LoginForm({setUser}) {
           navigate("/activity");
         }
         
-        /*try {
-          console.log("form", form);
-          const res = await axios.post(`http://localhost:3001/auth/login`, form)
-          if (res?.data) {
-            setUser(res.data);
-            setLoggedIn(true);
-            setIsLoading(false);
-            navigate("/activity");
-          } else {
-            setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-            setIsLoading(false)
-          }
-        } catch (err) {
-          console.log(err)
-          const message = err?.response?.data?.error?.message
-          setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-          setIsLoading(false)
-        }*/
+        
       }
     
 

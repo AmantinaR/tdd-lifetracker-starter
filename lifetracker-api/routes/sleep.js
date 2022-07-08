@@ -8,8 +8,10 @@ const router = express.Router();
 router.get('/', security.requireAuthenticatedUser, async (req, res, next) => {
     try{
         //list all posts
+        console.log("got to get in routes")
         const {user} = res.locals;
         const sleeps = await Sleep.listSleepForUser({user});
+        console.log("sleeps", sleeps)
         return res.status(201).json({sleeps})
     } catch(error) {
         next(error);
@@ -20,6 +22,7 @@ router.post('/', security.requireAuthenticatedUser, async (req, res, next) => {
     try{
         //create a new nutrition post
         const {user} = res.locals;
+        
         const sleep = await Sleep.createSleep({user, sleep: req.body});
         return res.status(201).json({sleep})
     } catch(error) { 

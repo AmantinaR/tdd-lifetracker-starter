@@ -47,6 +47,13 @@ class ApiClient {
         return await this.request({endpoint: `nutrition/`, method: "GET"});
     }
 
+    async newSleep(info) {
+        return await this.request({endpoint: `sleep/`, method: "POST", data: info});
+    }
+    async fetchSleep() {
+        return await this.request({endpoint: `sleep/`, method: "GET"});
+    }
+
     async signupUser(credentials) {
         return await this.request({endpoint: `auth/register`, method: "POST", data: credentials});
     }
