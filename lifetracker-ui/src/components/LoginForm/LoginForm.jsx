@@ -3,26 +3,28 @@ import {Redirect} from 'react'
 import axios from "axios";
 import apiClient from "../../services/apiClient";
 import {useNavigate} from 'react-router-dom';
+import { useAuthContext } from "../../contexts/auth";
 import { useState, useEffect } from 'react';
 import "./LoginForm.css";
 
-export default function LoginForm({setUser}) {
+export default function LoginForm({}) {
     //state to check if user is logged in
+    const {user, setUser, error, setError, isProcessing, setIsProcessing, loginUser} = useAuthContext();
 
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
         password: "",
     });
-    const [errors, setErrors] = useState({});
-    const [isLoading, setIsLoading] = useState(false)
+    //const [errors, setErrors] = useState({});
+    //const [isLoading, setIsLoading] = useState(false)
 
     const handleOnInputChange = (event) => {
         if (event.target.name === "email") {
           if (event.target.value.indexOf("@") === -1) {
-            setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+            setError((e) => ({ ...e, email: "Please enter a valid email." }))
           } else {
-            setErrors((e) => ({ ...e, email: null }))
+            setError((e) => ({ ...e, email: null }))
           }
         }
     
@@ -31,23 +33,8 @@ export default function LoginForm({setUser}) {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
-        setIsLoading(true)
-        setErrors((e) => ({ ...e, form: null }))
-
-        const {data, error} = await apiClient.loginUser({email: form.email, password: form.password});
-        if (error) {
-          setErrors((e) => ({ ...e, form: error }))
-          const message = error?.response?.data?.error?.message
-          setErrors((e) => ({ ...e, form: message ? String(message) : String(error) }))
-          setIsLoading(false)
-        }
-        if (data?.user) {
-          setUser(data.user);
-          apiClient.setToken(data.token);
-          setIsLoading(false);
-          navigate("/activity");
-        }
-        
+        const nav = await loginUser(form);
+        if (nav) navigate("/activity");
         
       }
     
@@ -55,7 +42,7 @@ export default function LoginForm({setUser}) {
     return (
         <div className="login-form">
           <h2>Login</h2>
-          {Boolean(errors.form) && <span className="error">{errors.form}</span>}
+          {Boolean(error?.form) && <span className="error">{error?.form}</span>}
             <div className="input-field">
                 <label htmlFor="email">Email</label>
                 <input
@@ -67,7 +54,7 @@ export default function LoginForm({setUser}) {
                 onChange={handleOnInputChange}
                 />
             </div>
-            {errors.email && <span className="error">{errors.email}</span>}
+            {error?.email && <span className="error">{error?.email}</span>}
             <div className="input-field">
                 <label htmlFor="password">Password</label>
                 <input
@@ -78,11 +65,11 @@ export default function LoginForm({setUser}) {
                 value={form.password}
                 onChange={handleOnInputChange}
                 />
-                {errors.password && <span className="error">{errors.password}</span>}
+                {error?.password && <span className="error">{error?.password}</span>}
             </div>
             <div className="btn-row">
-              <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
-              {isLoading ? "Loading..." : "Login"}
+              <button className="btn" disabled={isProcessing} onClick={handleOnSubmit}>
+              {isProcessing ? "Loading..." : "Login"}
               </button>
             </div>
           

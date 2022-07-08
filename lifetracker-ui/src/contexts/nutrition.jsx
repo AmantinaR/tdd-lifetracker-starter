@@ -7,7 +7,7 @@ export const NutritionContextProvider = ({children}) => {
     const [nutritions, setNutritions] = useState([]);
     const [initialized, setInitialized] = useState();
     const [isProcessing, setIsProcessing] = useState();
-    const [error, setError] = useState({nutrition: ""});
+    const [errors, setErrors] = useState({nutrition: ""});
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -45,20 +45,31 @@ export const NutritionContextProvider = ({children}) => {
 
     }, [loggedIn, initialized])
 
-    function newNutrition(info) {
+    async function newNutrition(form) {
+        setIsProcessing(true)
+        setErrors((e) => ({ ...e, form: null }))
         const fetchNew = async () => {
-            const {data, err} = await apiClient.newNutrition(info);
+            const {data, err} = await apiClient.newNutrition(form);
+            if (data) {
+                return true;
+            } else if (err) {
+                return false;
+            }
 
         }
         const fetchNutr = async () => {
             const {data, err} = await apiClient.fetchNutrition();
-            console.log(loggedIn, data);
-            if (data) setNutritions(data.nutritions);
-            if (err) setError(err);
+            if (data) {
+                setNutritions(data.nutritions);
+                return true;
+            };
+            if (err) setErrors(err);
         }
-        fetchNew();
-        fetchNutr();
+        const nav = await fetchNew();
+        await fetchNutr();
+        setIsProcessing(false);
         console.log("nutritions after new", nutritions);
+        return nav;
 
     }
 
@@ -69,8 +80,8 @@ export const NutritionContextProvider = ({children}) => {
         setInitialized,
         isProcessing,
         setIsProcessing,
-        error,
-        setError,
+        errors,
+        setErrors,
         newNutrition
         
     }

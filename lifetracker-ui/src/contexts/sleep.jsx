@@ -45,19 +45,29 @@ export const SleepContextProvider = ({children}) => {
 
     }, [loggedIn, initialized])
 
-    function newSleep(info) {
-        /*const fetchNew = async () => {
-            const {data, err} = await apiClient.newSleep(form);
-
-        }
+    async function newSleep(form) {
+        setIsProcessing(true)
+        setError((e) => ({ ...e, form: null }))
         const fetchSleep = async () => {
             const {data, err} = await apiClient.fetchSleep();
-            if (data) setSleep(data.sleep);
-            if (err) setErrors(err);
+            if (data) setSleep(data.sleeps);
+            if (err) setError(err);
         }
-        await fetchNew();
-        await fetchSleep(); */
         const fetchNew = async () => {
+            const {data, err} = await apiClient.newSleep(form);
+            if (err) setError(err);
+            else {
+                await fetchSleep()
+                return true;
+                
+            };
+
+        }
+        
+        const nav = await fetchNew();
+        console.log("sleep after new", sleep);
+        return nav;
+        /*const fetchNew = async () => {
             const {data, err} = await apiClient.newSleep(info);
             if (err) setError(err);
         }
@@ -68,8 +78,8 @@ export const SleepContextProvider = ({children}) => {
             if (err) setError(err);
         }
         fetchNew();
-        fetchSleep();
-        console.log("sleep after new", sleep);
+        fetchSleep();*/
+        
 
     }
 

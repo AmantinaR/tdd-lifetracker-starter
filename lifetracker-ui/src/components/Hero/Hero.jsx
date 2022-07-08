@@ -13,8 +13,8 @@ export default function Hero() {
             <div className="cta">
                 <h1>Welcome to Life Tracker 365</h1>
                 <h2>Keep track of your routines and achieve your fullest potential</h2>
-                <Link to={"nutrition"}><img src={nutrition} alt="green apple with nutrition under" /></Link>
-                <Link to={"activity"}><img src={sleep} alt="green moon and 3 z's with sleep under" /></Link>
+                <Link to={"nutrition"}><img className="hero-icon" src={nutrition} alt="green apple with nutrition under" /></Link>
+                <Link to={"sleep"}><img className="hero-icon" src={sleep} alt="green moon and 3 z's with sleep under" /></Link>
             </div>
         </div>
     </div>);

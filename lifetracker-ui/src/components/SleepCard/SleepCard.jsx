@@ -21,11 +21,29 @@ export default function SleepCard({sleep = {}}) {
     return (
         <div className="sleep-card">
             <div className="sleep-card-details">
-            <div className="sleep-start">Start Time: {startD} {startH}</div>
-            <div className="sleep-end">End Time: {endD} {endH}</div>
-            <div className="sleep-hours">Hours Slept: {(endT-startT)/3600000}</div>
-            <div className="sleep-date">Date Added: {dateString}</div>
-        </div>
+                <div className="sleep-date">
+                        <h4>{dateString}</h4>
+                </div>
+                <div className="time-cont">
+                    <div className="sleep-start">
+                        <h4>Start Time:</h4>
+                        <p>{startD}</p>
+                        <h2>{startH}</h2>
+                    </div>
+                    <div className="sleep-end">
+                        <h4>End Time:</h4>
+                        <p>{endD}</p>
+                        <h2>{endH}</h2>
+                    </div>
+                </div>
+                <div className="extra-cont">
+                    <div className="sleep-hours">
+                        <h2>{(endT-startT)/3600000} Hours Slept</h2>
+                        </div>
+                    
+                </div>
+                
+            </div>
             
         </div>
     );

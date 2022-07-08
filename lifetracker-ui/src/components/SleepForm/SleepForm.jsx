@@ -11,13 +11,13 @@ import { SleepContextProvider, useSleepContext } from "../../contexts/sleep";
 
 export default function SleepForm({}) {
     //state to check if user is logged in
-    const {sleep, setSleep} = useSleepContext();
+    const {sleep, setSleep, newSleep, error} = useSleepContext();
     const navigate = useNavigate()
     const [form, setForm] = useState({
         startTime: "",
         endTime: "",
     });
-    const [errors, setErrors] = useState({});
+    //const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false)
 
     const handleOnInputChange = (event) => {
@@ -29,24 +29,10 @@ export default function SleepForm({}) {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
-        setIsLoading(true)
-        setErrors((e) => ({ ...e, form: null }))
-        const fetchSleep = async () => {
-            const {data, err} = await apiClient.fetchSleep();
-            if (data) setSleep(data.sleeps);
-            if (err) setErrors(err);
-        }
-        const fetchNew = async () => {
-            const {data, err} = await apiClient.newSleep(form);
-            if (err) setErrors(err);
-            else {
-                fetchSleep()
-                navigate("/sleep")
-            };
-
-        }
         
-        await fetchNew();
+        const nav = await newSleep(form);
+
+        if (nav) navigate("/sleep");
         
         console.log("sleep after new", setSleep);
         
@@ -59,6 +45,7 @@ export default function SleepForm({}) {
             <Link className="btn" to={'/sleep'} style={{textDecoration: "none"}}>Back</Link>
             <h2>Record Sleep</h2>
             <div className="form">
+            {Boolean(error?.sleep) && <span className="error">{error?.sleep}</span>}
                 <div className="form-input">
                     <label>Start Time</label>
                     <input type="datetime-local" name="startTime" value={form.startTime} onChange={handleOnInputChange}/>

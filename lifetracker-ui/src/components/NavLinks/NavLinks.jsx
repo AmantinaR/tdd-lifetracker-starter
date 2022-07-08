@@ -5,12 +5,10 @@ import apiClient from "../../services/apiClient";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 
 export default function NavLinks({loggedIn}) {
-  const {setUser, setError, } = useAuthContext();
+  const {setUser, setError, logoutUser} = useAuthContext();
   const navigate = useNavigate();
   const handleLogout = async () => {
-    await apiClient.logoutUser();
-    setUser({});
-    setError(null);
+    logoutUser();
     navigate("/")
   }
 
