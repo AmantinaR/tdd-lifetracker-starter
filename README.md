@@ -3,7 +3,7 @@
 
 Submitted by: **Amantina Rossi**
 
-Deployed Application: [Lifetracker Deployed Site but not fully functional on deployed version](https://lifetracker365.surge.sh/)
+Deployed Application: [Lifetracker Deployed Site](https://lifetracker365.surge.sh/)
 
 ## Application Features
 
@@ -23,23 +23,27 @@ Deployed Application: [Lifetracker Deployed Site but not fully functional on dep
 - [x] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
-- [ ] The detailed activity page should display a feed of all previous tracked activities.
-- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
-- [ ] The activity tracked should be given a unique id for easy lookup.
-  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
-  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+- [x] The detailed activity page should display a feed of all previous tracked activities.
+- [x] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [x] The activity tracked should be given a unique id for easy lookup.
+  * [Table Schema](https://github.com/AmantinaR/tdd-lifetracker-starter/blob/main/lifetracker-api/lifetracker-schema.sql) 
 
 ### Stretch Features
 
 Implement any of the following features to improve the application:
+- [x] More than 1 activity tracked
 - [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
 - [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
 - [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
 - [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 ### Walkthrough Video
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/75582135/176980247-17260797-ab53-447e-81f3-ac8dd79455e4.gif)
 
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/75582135/178075479-754c7672-ed44-462d-8920-c02bedaee529.gif)
+⬅️walkthrough week 5
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/75582135/178075512-787b32ce-b814-458e-a580-b4ed4f18f956.gif)
+⬅️walkthrough week 4 above
 
 
 ### Reflection
@@ -50,11 +54,11 @@ The topics in lab somewhat helped prepare me for the assignment. The SQL practic
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-I would try to spend more time understanding what I'm doing so I can duplicate the work in the future without having to rely on other code/resource videos. I would also have liked to spend more time on styling.
+I would try to spend more time understanding what I'm doing so I can duplicate the work in the future without having to rely on other code/resource videos. I would also have liked to spend more time on styling and completing more stretch features.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-My project demo went realyl well and I appreciate the insights given to me by the Course Hero mentors. I especially enjoyed hearing what they had to say about the other demos because it gave me tips for how to improve my own project. 
+My project demo went really well and I appreciate the insights given to me by the Course Hero mentors. I especially enjoyed hearing what they had to say about the other demos because it gave me tips for how to improve my own project. 
 
 ### Open-source libraries used
 
