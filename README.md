@@ -40,9 +40,10 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/75582135/178075479-754c7672-ed44-462d-8920-c02bedaee529.gif)
+walkthrough week 5 above
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/75582135/178075512-787b32ce-b814-458e-a580-b4ed4f18f956.gif)
+walkthrough week 4 above
 
 ### Reflection
 
@@ -52,11 +53,11 @@ The topics in lab somewhat helped prepare me for the assignment. The SQL practic
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-I would try to spend more time understanding what I'm doing so I can duplicate the work in the future without having to rely on other code/resource videos. I would also have liked to spend more time on styling.
+I would try to spend more time understanding what I'm doing so I can duplicate the work in the future without having to rely on other code/resource videos. I would also have liked to spend more time on styling and completing more stretch features.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-My project demo went realyl well and I appreciate the insights given to me by the Course Hero mentors. I especially enjoyed hearing what they had to say about the other demos because it gave me tips for how to improve my own project. 
+My project demo went really well and I appreciate the insights given to me by the Course Hero mentors. I especially enjoyed hearing what they had to say about the other demos because it gave me tips for how to improve my own project. 
 
 ### Open-source libraries used
 
