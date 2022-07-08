@@ -1,7 +1,7 @@
 
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **Amantina**
+Submitted by: **Amantina Rossi**
 
 Deployed Application: [Lifetracker Deployed Site](https://lifetracker365.surge.sh/)
 
@@ -39,10 +39,12 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
+
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/75582135/178075479-754c7672-ed44-462d-8920-c02bedaee529.gif)
 ⬅️walkthrough week 5
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/75582135/178075512-787b32ce-b814-458e-a580-b4ed4f18f956.gif)
 ⬅️walkthrough week 4 above
+
 
 ### Reflection
 
