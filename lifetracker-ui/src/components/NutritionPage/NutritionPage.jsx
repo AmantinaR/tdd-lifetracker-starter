@@ -9,6 +9,7 @@ import NutritionForm from "components/NutritionForm/NutritionForm";
 import NutritionNew from "components/NutritionNew/NutritionNew";
 import "./NutritionPage.css";
 import NotFound from "components/NotFound/NotFound";
+import bottle from "../../assets/bottle.png";
 
 export default function OverviewContainer() {
     return (
@@ -22,15 +23,19 @@ function NutritionPage({}) {
     //state to check if user is logged in
     return (
         <div className="nutrition-page">
-            <div className="nutrition-header">
-            <h1>Nutrition</h1>
+            <img className="bottle" src={bottle} alt="" />
+            <div className="nutrition-content">
+              <div className="nutrition-header">
+              <h1>Nutrition</h1>
+              </div>
+              <Routes>
+                  <Route path="/" element={<NutritionOverview/>}/>
+                  <Route path="/create" element={<NutritionNew/>}/>
+                  <Route path="/id/:nutritionId" element={<h4>detail</h4>}/>
+                  <Route path="/*" element={<NotFound/>}/>
+              </Routes>
             </div>
-            <Routes>
-                <Route path="/" element={<NutritionOverview/>}/>
-                <Route path="/create" element={<NutritionNew/>}/>
-                <Route path="/id/:nutritionId" element={<h4>detail</h4>}/>
-                <Route path="/*" element={<NotFound/>}/>
-            </Routes>
+            
         </div>
     );
 }

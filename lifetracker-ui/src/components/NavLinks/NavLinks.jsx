@@ -5,12 +5,10 @@ import apiClient from "../../services/apiClient";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 
 export default function NavLinks({loggedIn}) {
-  const {setUser, setError, } = useAuthContext();
+  const {setUser, setError, logoutUser} = useAuthContext();
   const navigate = useNavigate();
   const handleLogout = async () => {
-    await apiClient.logoutUser();
-    setUser({});
-    setError(null);
+    logoutUser();
     navigate("/")
   }
 
@@ -22,6 +20,9 @@ export default function NavLinks({loggedIn}) {
           </li>
           <li>
             <a className="nav-link" href="/nutrition">Nutrition</a>
+          </li>
+          <li>
+            <Link className="nav-link" to={"/sleep"}>Sleep</Link>
           </li>
           <li>
           <Link className="nav-link" to={"/activity"}>Activity</Link>

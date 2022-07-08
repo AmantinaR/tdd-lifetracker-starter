@@ -1,0 +1,9 @@
+.s-feed-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sleep-feed{
+    padding-bottom: 200px;
+}

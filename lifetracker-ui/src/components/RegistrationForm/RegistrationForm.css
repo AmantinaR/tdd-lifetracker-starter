@@ -4,8 +4,9 @@
     padding: 60px;
     border-radius: 6px;
     background-color: var(--light-text);
+    box-shadow: 4px 4px 20px rgba(9, 22, 7, 0.496);
+    background-color: rgba(255, 255, 255, 0.586);
     color: var(--dark-text);
-    box-shadow: 4px 4px 20px rgb(9, 22, 7);
 
 }
 a#here-text {

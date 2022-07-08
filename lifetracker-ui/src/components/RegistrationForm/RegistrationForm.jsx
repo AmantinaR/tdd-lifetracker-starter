@@ -9,10 +9,10 @@ import "./RegistrationForm.css"
 
 export default function Signup({  }) {
 
-  const {setUser} = useAuthContext()
+  const {setUser, isProcessing, error, setError, signupUser} = useAuthContext()
   const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
-  const [errors, setErrors] = useState({})
+  //const [isLoading, setIsLoading] = useState(false)
+  //const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
     username: "",
     firstName: "",
@@ -25,23 +25,23 @@ export default function Signup({  }) {
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
       if (form.passwordConfirm && form.passwordConfirm !== event.target.value) {
-        setErrors((e) => ({ ...e, passwordConfirm: "Password's do not match" }))
+        setError((e) => ({ ...e, passwordConfirm: "Password's do not match" }))
       } else {
-        setErrors((e) => ({ ...e, passwordConfirm: null }))
+        setError((e) => ({ ...e, passwordConfirm: null }))
       }
     }
     if (event.target.name === "passwordConfirm") {
       if (form.password && form.password !== event.target.value) {
-        setErrors((e) => ({ ...e, passwordConfirm: "Password's do not match" }))
+        setError((e) => ({ ...e, passwordConfirm: "Password's do not match" }))
       } else {
-        setErrors((e) => ({ ...e, passwordConfirm: null }))
+        setError((e) => ({ ...e, passwordConfirm: null }))
       }
     }
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
-        setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+        setError((e) => ({ ...e, email: "Please enter a valid email." }))
       } else {
-        setErrors((e) => ({ ...e, email: null }))
+        setError((e) => ({ ...e, email: null }))
       }
     }
 
@@ -49,39 +49,15 @@ export default function Signup({  }) {
   }
 
   const handleOnSubmit = async () => {
-    setIsLoading(true)
-    setErrors((e) => ({ ...e, form: null }))
-
-    if (form.passwordConfirm !== form.password) {
-      setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }))
-      setIsLoading(false)
-      return
-    } else {
-      setErrors((e) => ({ ...e, passwordConfirm: null }))
-    }
-    const {data, error} = await apiClient.signupUser({email: form.email, password: form.password, firstName: form.firstName, lastName: form.lastName, username: form.username});
-    if (error) {
-        setErrors((e) => ({ ...e, form: error }))
-        const message = error?.response?.data?.error?.message
-        setErrors((e) => ({ ...e, form: message ? String(message) : String(error) }))
-        setIsLoading(false)
-    }
-    if (data?.user) {
-        setUser(data.user);
-        apiClient.setToken(data.token);
-        
-        setIsLoading(false);
-        navigate("/activity");
-    }
-    setIsLoading(false);
-
+    const nav = await signupUser(form);
+    if (nav) navigate("/activity");
   }
 
   return (
     <div className="register-form">
       <div className="card">
         <h2>Register</h2>
-        {errors.form && <span className="error">{errors.form}</span>}
+        {error?.form && <span className="error">{error?.form}</span>}
         <br />
 
         <div className="form">
@@ -95,7 +71,7 @@ export default function Signup({  }) {
                 value={form.firstName}
                 onChange={handleOnInputChange}
               />
-              {errors.firstName && <span className="error">{errors.firstName}</span>}
+              {error?.firstName && <span className="error">{error?.firstName}</span>}
             </div>
             <div className="input-field">
               <label htmlFor="name">Last Name</label>
@@ -106,7 +82,7 @@ export default function Signup({  }) {
                 value={form.lastName}
                 onChange={handleOnInputChange}
               />
-              {errors.lastName && <span className="error">{errors.lastName}</span>}
+              {error?.lastName && <span className="error">{error?.lastName}</span>}
             </div>
           </div>
 
@@ -121,7 +97,7 @@ export default function Signup({  }) {
             />
             
           </div>
-          {errors.email && <span className="error">{errors.email}</span>}
+          {error?.email && <span className="error">{error?.email}</span>}
           <div className="input-field">
             <label htmlFor="name">Username</label>
             <input
@@ -131,7 +107,7 @@ export default function Signup({  }) {
               value={form.username}
               onChange={handleOnInputChange}
             />
-            {errors.username && <span className="error">{errors.username}</span>}
+            {error?.username && <span className="error">{error?.username}</span>}
           </div>
 
           <div className="input-field">
@@ -143,7 +119,7 @@ export default function Signup({  }) {
               value={form.password}
               onChange={handleOnInputChange}
             />
-            {errors.password && <span className="error">{errors.password}</span>}
+            {error?.password && <span className="error">{errors.password}</span>}
           </div>
 
           <div className="input-field">
@@ -157,10 +133,10 @@ export default function Signup({  }) {
             />
             
           </div>
-          {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+          {error?.passwordConfirm && <span className="error">{error?.passwordConfirm}</span>}
         <div className="btn-row">
-            <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
-                {isLoading ? "Loading..." : "Create Account"}
+            <button className="btn" disabled={isProcessing} onClick={handleOnSubmit}>
+                {isProcessing ? "Loading..." : "Create Account"}
             </button>
         </div>
           

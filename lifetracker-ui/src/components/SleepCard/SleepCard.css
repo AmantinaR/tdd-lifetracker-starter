@@ -1,0 +1,55 @@
+.sleep-card{
+    border-radius: 6px;
+    
+    width: fit-content;
+    padding: 40px;
+    background-color: rgb(248, 255, 246);
+    color: var(--background);
+    margin-bottom: 20px;
+    
+}
+.sleep-card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.sleep-image-c{
+    width: 200px;
+    max-height: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.sleep-image{
+    width: inherit;
+    height: inherit;
+}
+
+.sleep-card:hover{
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px rgb(165, 97, 109);
+    transform: translateY(-10px);
+    width: fit-content;
+    padding: 40px;
+    background-color: rgb(248, 255, 246);
+    color: var(--dark-text);
+}
+.time-cont{
+    display: flex;
+    flex-direction: row;
+}
+.sleep-start{
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.sleep-end{
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.extra-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

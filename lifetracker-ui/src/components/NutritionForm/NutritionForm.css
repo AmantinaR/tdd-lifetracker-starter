@@ -10,35 +10,42 @@
   }
   .form-input label {
     margin-bottom: 5px;
-    color: var(--light-text);
+    color: var(--background);
   }
   .form-input input {
     font: inherit;
     height: 60px;
     padding: 0 15px;
     font-size: 16px;
-    border: solid 1px var(--light-text);
+    border: solid 1px var(--background);
     width: 100%;
     background: transparent;
-    color: var(--light-text);
+    color: var(--background);
+    border-radius: 4px;
   }
   .form-input input::placeholder {
-    color: var(--light-text);
+    color: var(--background);
   }
   
   .nutrition-form{
+      margin-top: 20px;
       padding: 60px;
       padding-left: 100px;
       padding-right: 100px;
       width: 50%;
       font: inherit;
+      background-color: rgba(255, 255, 255, 0.866);
+      border-radius: 6px;
+  }
+  .nutrition-form > h2{
+    color: var(--background)
   }
   #category{
       width: 100%;
       padding: 20px 10px;
-      border: solid 1px var(--light-text);
+      border: solid 1px var(--background);
       background-color: transparent;
-      color: var(--light-text);
+      color: var(--background);
       border-radius: 4px;
       font: inherit;
   }
@@ -54,6 +61,11 @@
   }
   .submit-nutrition:hover{
     background-color: var(--light-text);
-    color: var(--background);
+    color: var(--accent-green);
+  }
+
+  .nutrition-form > .btn:hover{
+    background-color: var(--light-text);
+    color: var(--accent-green);
   }
   

@@ -4,9 +4,9 @@
     align-items: flex-start;
     padding: 60px;
     border-radius: 6px;
-    background-color: var(--light-text);
+    background-color: rgba(255, 255, 255, 0.586);
     color: var(--dark-text);
-    box-shadow: 4px 4px 20px rgb(9, 22, 7);
+    box-shadow: 4px 4px 20px rgba(9, 22, 7, 0.431);
 }
 .input-field{
     width: 300px;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     margin-bottom: 20px;
 }
-input{
+.input-field > input{
     padding-left: 10px;
     padding-right: 30px;
     font-size: medium;
@@ -23,7 +23,12 @@ input{
     border-radius: 4px;
     padding-top: 6px;
     padding-bottom: 6px;
+    flex: 1;
 }
+.input-field > label {
+    width: 80px
+}
+
 .btn-row{
     width: 100%;
     display: flex;

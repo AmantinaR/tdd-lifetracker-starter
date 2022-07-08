@@ -3,7 +3,7 @@ import {Redirect} from 'react'
 import axios from "axios";
 import { useState, useEffect,  } from 'react';
 import apiClient from "../../services/apiClient";
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate, Link} from 'react-router-dom';
 import NutritionOverview from "components/NutritionOverview/NutritionOverview";
 import "./NutritionForm.css";
 import NotFound from "components/NotFound/NotFound";
@@ -11,7 +11,7 @@ import { NutritionContextProvider, useNutritionContext } from "../../contexts/nu
 
 export default function NutritionForm({}) {
     //state to check if user is logged in
-    const {nutritions, setNutritions} = useNutritionContext();
+    const {nutritions, setNutritions, errors, setErrors, isProcessing, setIsProcessing, newNutrition} = useNutritionContext();
     const navigate = useNavigate()
     const [form, setForm] = useState({
         name: "",
@@ -20,8 +20,8 @@ export default function NutritionForm({}) {
         calories: 0,
         imageUrl: ""
     });
-    const [errors, setErrors] = useState({});
-    const [isLoading, setIsLoading] = useState(false)
+    //const [errors, setErrors] = useState({});
+    //const [isLoading, setIsLoading] = useState(false)
     //const {nutritions, setNutritions} = useNutritionContext();
 
     const handleOnInputChange = (event) => {
@@ -32,20 +32,8 @@ export default function NutritionForm({}) {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
-        setIsLoading(true)
-        setErrors((e) => ({ ...e, form: null }))
-        const fetchNew = async () => {
-            const {data, err} = await apiClient.newNutrition(form);
-
-        }
-        const fetchNutr = async () => {
-            const {data, err} = await apiClient.fetchNutrition();
-            if (data) setNutritions(data.nutritions);
-            if (err) setErrors(err);
-        }
-        fetchNew();
-        fetchNutr();
-        navigate("/nutrition")
+        const nav = await newNutrition(form)
+        if (nav) navigate("/nutrition");
         console.log("nutritions after new", nutritions);
         
       }
@@ -54,6 +42,7 @@ export default function NutritionForm({}) {
 
     return (
         <div className="nutrition-form">
+            <Link className="btn" to={'/nutrition'} style={{textDecoration: "none"}}>Back</Link>
             <h2>Record Nutrition</h2>
             <div className="form">
                 <div className="form-input">

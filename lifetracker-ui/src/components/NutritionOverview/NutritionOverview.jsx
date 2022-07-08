@@ -17,15 +17,15 @@ export default function NutritionOverview({}) {
         setInitialized,
         isProcessing,
         setIsProcessing,
-        error,
-        setError,
+        errors,
+        setErrors,
         newNutrition
         
     } = useNutritionContext();
     return (
         <div className="nutrition-overview">
             <div className="overview-header">
-                {Boolean(error.nutrition) && <span className="error">{error.nutrition}</span>}
+                {Boolean(errors?.nutrition) && <span className="error">{errors?.nutrition}</span>}
                 <h1>Overview</h1>
                 <Link className="nutrition-btn" to="/nutrition/create">Record Nutrition</Link>
             </div>
